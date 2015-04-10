@@ -14,9 +14,21 @@
 #   about_triangle_project_2.rb
 #
 def triangle(a, b, c)
+  s = (a + b + c) / 2.0
+  valid = (s - a) * (s - b) * (s - c)
+
+
+  if a <= 0 || b <= 0 || c <= 0 || valid <= 0 then
+    raise TriangleError
+  end
+
   # WRITE THIS CODE
+  a == b && a == c ? :equilateral:
+  a == b || a == c || b == c ? :isosceles:
+  :scalene
 end
 
 # Error class used in part 2.  No need to change this code.
 class TriangleError < StandardError
+
 end
